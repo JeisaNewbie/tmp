@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 13:58:27 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/28 15:15:10 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/09/17 16:17:51 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ int	main()
 	Intern	je;
 	AForm *tmp;
 
-	tmp = je.makeForm("ShrubberyCreationFormm", "myhome");
+	tmp = je.makeForm("ShrubberyCreationFormm", "myhome");//ShrubberyCreationForm + m (fail)
 	if (tmp == NULL)
 	{
-		std::cout<<"return NULL"<<std::endl;
+		std::cout<<"Error: Form doesn't exist"<<std::endl;
 		return (0);
 	}
 	d.signForm(*tmp);

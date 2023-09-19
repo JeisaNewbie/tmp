@@ -20,12 +20,12 @@ std::ostream& operator<<( std::ostream& os, const AForm& copy )
 
 AForm::AForm( void ): name("Default"), grade_to_sign(75), grade_to_execute(75)
 {
-	std::cout<<"AForm Default Constructor called"<<std::endl;
+	// std::cout<<"AForm Default Constructor called"<<std::endl;
 	sign = 0;
 }
 AForm::AForm( const std::string& name, int grade_to_sign, int grade_to_execute): name(name), grade_to_sign(grade_to_sign), grade_to_execute(grade_to_execute)
 {
-	std::cout<<"AForm Default Constructor called"<<std::endl;
+	// std::cout<<"AForm Default Constructor called"<<std::endl;
 	try
 	{
 		if (getGradeToSign() < 1 || getGradeToExecute() < 1)
@@ -42,7 +42,7 @@ AForm::AForm( const std::string& name, int grade_to_sign, int grade_to_execute):
 
 AForm::AForm( const AForm& copy ):name(copy.getName()), grade_to_sign(copy.getGradeToSign()), grade_to_execute(copy.getGradeToExecute())
 {
-	std::cout<<"AForm Copy Constructor called"<<std::endl;
+	// std::cout<<"AForm Copy Constructor called"<<std::endl;
 	sign = 0;
 }
 
@@ -57,11 +57,6 @@ AForm& AForm::operator=( const AForm& copy )
 	*tmp_sign = copy.getGradeToSign();
 	*tmp_execute = copy.getGradeToExecute();
 	return (*this);
-}
-
-void AForm::execute(Bureaucrat const & executor) const
-{
-	return ;
 }
 
 void AForm::beSigned( const Bureaucrat& copy )
@@ -99,5 +94,5 @@ const int& AForm::getGradeToExecute( void ) const
 
 AForm::~AForm( void )
 {
-	std::cout<<"AForm Default Destructor called"<<std::endl;
+	// std::cout<<"AForm Default Destructor called"<<std::endl;
 }

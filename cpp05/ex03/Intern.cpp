@@ -1,58 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/28 13:49:00 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/28 15:28:29 by ahkiler          ###   ########.fr       */
+/*   Created: 2023/09/17 16:03:52 by jhwang2           #+#    #+#             */
+/*   Updated: 2023/09/17 16:03:54 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
- #define INTERN_HPP
-
-#include <iostream>
-#include <string>
-#include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-
-namespace FORM
-{
-	enum
-	{
-		SHRUBBERYCREATIONFORM=1,
-		ROBOTOMYREQUESTFORM=2,
-		PRESIDENTIALPARDONFORM=3
-	};
-}
-
-class Intern
-{
-public:
-	Intern( void );
-	Intern( const Intern& copy );
-	Intern& operator=( const Intern& copy );
-	AForm* makeForm( const std::string& name, const std::string& target );
-	int compare_str( const std::string& name );
-	~Intern( void );
-};
+#include "Intern.hpp"
 
 Intern::Intern( void )
 {
-	std::cout<<"Intern Default Constructor called"<<std::endl;
+	// std::cout<<"Intern Default Constructor called"<<std::endl;
 }
 
 Intern::Intern( const Intern& copy )
 {
-	std::cout<<"Intern Default Copy Constructor called"<<std::endl;
+	// std::cout<<"Intern Default Copy Constructor called"<<std::endl;
+	(void)copy;
 }
 
 Intern& Intern::operator=( const Intern& copy )
 {
+	(void)copy;
 	return (*this);
 }
 
@@ -90,7 +63,5 @@ int	Intern::compare_str( const std::string& name )
 
 Intern::~Intern( void )
 {
-	std::cout<<"Intern Default Destructor called"<<std::endl;
+	// std::cout<<"Intern Default Destructor called"<<std::endl;
 }
-
-#endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 11:36:09 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/27 20:03:07 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/09/17 16:06:14 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 RobotomyRequestForm::RobotomyRequestForm( void ): AForm("Default", 72, 45)
 {
-	std::cout<<"RobotomyRequestForm Default Constructor called"<<std::endl;
+	// std::cout<<"RobotomyRequestForm Default Constructor called"<<std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const std::string target ): AForm(target, 72, 45)
 {
-	std::cout<<"RobotomyRequestForm Default Constructor called"<<std::endl;
+	// std::cout<<"RobotomyRequestForm Default Constructor called"<<std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm& copy ): AForm(copy.getName(), 72, 45)
 {
-	std::cout<<"RobotomyRequestForm Copy Constructor called"<<std::endl;
+	// std::cout<<"RobotomyRequestForm Copy Constructor called"<<std::endl;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm& copy )
@@ -48,5 +48,5 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 
 RobotomyRequestForm::~RobotomyRequestForm( void )
 {
-	std::cout<<"RobotomyRequestForm Default Destructor called"<<std::endl;
+	// std::cout<<"RobotomyRequestForm Default Destructor called"<<std::endl;
 }

@@ -18,7 +18,7 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 		throw GradeTooLowException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw ExecuteGradeTooLowException();
-	std::ofstream	open_f(this->getName() + "_shrubbery");
+	std::ofstream	open_f((this->getName() + "_shrubbery").c_str());
 	std::string tree = "......................             .        ......\n"
 						"...........#/&&%*%&&(#%%%%#/&(@(,#  *..   . ......\n"
 						".... ... /&%#%##@#%#&(%#%#&%(&&*%,@%,@/(/.... ....\n"
@@ -39,17 +39,17 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const
 
 ShrubberyCreationForm::ShrubberyCreationForm( void ): AForm("Default", 145, 137)
 {
-	std::cout<<"ShrubberyCreationForm Default Constructor called"<<std::endl;
+	// std::cout<<"ShrubberyCreationForm Default Constructor called"<<std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const std::string target ): AForm(target, 145, 137)
 {
-	std::cout<<"ShrubberyCreationForm Default Constructor called"<<std::endl;
+	// std::cout<<"ShrubberyCreationForm Default Constructor called"<<std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm& copy ): AForm(copy.getName(), 145, 137)
 {
-	std::cout<<"ShrubberyCreationForm Default Copy Constructor called"<<std::endl;
+	// std::cout<<"ShrubberyCreationForm Default Copy Constructor called"<<std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreationForm& copy )
@@ -60,5 +60,5 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=( const ShrubberyCreation
 
 ShrubberyCreationForm::~ShrubberyCreationForm( void )
 {
-	std::cout<<"ShrubberyCreationForm Default Destructor called"<<std::endl;
+	// std::cout<<"ShrubberyCreationForm Default Destructor called"<<std::endl;
 }

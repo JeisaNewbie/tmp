@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/27 20:10:24 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/27 20:15:36 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/09/17 16:06:03 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ void PresidentialPardonForm::execute( Bureaucrat const & executor ) const
 
 PresidentialPardonForm::PresidentialPardonForm( void ): AForm("Default", 25, 5)
 {
-	std::cout<<"PresidentialPardonForm Default Constructor called"<<std::endl;
+	// std::cout<<"PresidentialPardonForm Default Constructor called"<<std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const std::string target ): AForm(target, 25, 5)
 {
-	std::cout<<"PresidentialPardonForm Default Constructor called"<<std::endl;
+	// std::cout<<"PresidentialPardonForm Default Constructor called"<<std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm& copy ): AForm(copy.getName(), 25, 5)
 {
-	std::cout<<"PresidentialPardonForm Default Copy Constructor called"<<std::endl;
+	// std::cout<<"PresidentialPardonForm Default Copy Constructor called"<<std::endl;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=( const PresidentialPardonForm& copy )
@@ -44,5 +44,5 @@ PresidentialPardonForm& PresidentialPardonForm::operator=( const PresidentialPar
 
 PresidentialPardonForm::~PresidentialPardonForm( void )
 {
-	std::cout<<"PresidentialPardonForm Default Destructor called"<<std::endl;
+	// std::cout<<"PresidentialPardonForm Default Destructor called"<<std::endl;
 }

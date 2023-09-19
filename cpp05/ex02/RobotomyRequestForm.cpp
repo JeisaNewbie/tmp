@@ -14,17 +14,17 @@
 
 RobotomyRequestForm::RobotomyRequestForm( void ): AForm("Default", 72, 45)
 {
-	std::cout<<"RobotomyRequestForm Default Constructor called"<<std::endl;
+	// std::cout<<"RobotomyRequestForm Default Constructor called"<<std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const std::string target ): AForm(target, 72, 45)
 {
-	std::cout<<"RobotomyRequestForm Default Constructor called"<<std::endl;
+	// std::cout<<"RobotomyRequestForm Default Constructor called"<<std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm& copy ): AForm(copy.getName(), 72, 45)
 {
-	std::cout<<"RobotomyRequestForm Copy Constructor called"<<std::endl;
+	// std::cout<<"RobotomyRequestForm Copy Constructor called"<<std::endl;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=( const RobotomyRequestForm& copy )
@@ -48,5 +48,5 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor ) const
 
 RobotomyRequestForm::~RobotomyRequestForm( void )
 {
-	std::cout<<"RobotomyRequestForm Default Destructor called"<<std::endl;
+	// std::cout<<"RobotomyRequestForm Default Destructor called"<<std::endl;
 }

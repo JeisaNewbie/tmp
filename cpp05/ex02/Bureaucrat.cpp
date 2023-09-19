@@ -20,12 +20,12 @@ std::ostream& operator<<( std::ostream& os, const Bureaucrat& copy )
 
 Bureaucrat::Bureaucrat( void ): name(""), grade(0)
 {
-	std::cout<<"Bureaucrat Default Constructor called"<<std::endl;
+	// std::cout<<"Bureaucrat Default Constructor called"<<std::endl;
 }
 
 Bureaucrat::Bureaucrat( const std::string& name, int grade ): name(name)
 {
-	std::cout<<"Bureaucrat Default Constructor called"<<std::endl;
+	// std::cout<<"Bureaucrat Default Constructor called"<<std::endl;
 	try
 	{
 		if (grade < 1)
@@ -42,7 +42,7 @@ Bureaucrat::Bureaucrat( const std::string& name, int grade ): name(name)
 
 Bureaucrat::Bureaucrat( const Bureaucrat& copy )
 {
-	std::cout<<"Bureaucrat Copy Constructor called"<<std::endl;
+	// std::cout<<"Bureaucrat Copy Constructor called"<<std::endl;
 	*this = copy;
 }
 
@@ -128,5 +128,5 @@ void Bureaucrat::executeForm(AForm const & aform)
 
 Bureaucrat::~Bureaucrat( void )
 {
-	std::cout<<"Bureaucrat Default Destructor called"<<std::endl;
+	// std::cout<<"Bureaucrat Default Destructor called"<<std::endl;
 }
