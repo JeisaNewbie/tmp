@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 13:58:27 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/09/17 16:17:51 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/09/22 15:04:10 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,23 @@ int	main()
 	RobotomyRequestForm r("robo");
 	PresidentialPardonForm p("pardon");
 
+	std::cout<<"-------------Shrubbery-----------\n";
 	d.signForm(s);
 	d.executeForm(s);
 
+	std::cout<<"-------------robo-----------\n";
 	a.signForm(r);
 	a.executeForm(r);
 
+	std::cout<<"-------------robo after increase 40-----------\n";
 	a.increaseG(40);
 	a.executeForm(r);
 
+	std::cout<<"-------------Presidential-----------\n";
 	b.signForm(p);
 	b.executeForm(p);
 
+	std::cout<<"-------------Presidential after increase 20-----------\n";
 	b.increaseG(20);
 	b.executeForm(p);
 

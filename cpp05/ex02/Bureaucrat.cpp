@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 20:25:21 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/05/27 11:31:34 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/09/22 14:50:38 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ std::ostream& operator<<( std::ostream& os, const Bureaucrat& copy )
 	return (os);
 }
 
-Bureaucrat::Bureaucrat( void ): name(""), grade(0)
+Bureaucrat::Bureaucrat( void ): name("Default"), grade(75)
 {
 	// std::cout<<"Bureaucrat Default Constructor called"<<std::endl;
 }
