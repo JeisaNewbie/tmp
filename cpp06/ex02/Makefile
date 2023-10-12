@@ -3,38 +3,42 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+         #
+#    By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:34:51 by jhwang2           #+#    #+#              #
-#    Updated: 2023/06/02 17:05:19 by ahkiler          ###   ########.fr        #
+#    Updated: 2023/10/12 16:13:58 by jhwang2          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	typecheck
-CC		=	c++
-CFLAG	=	-Wall -Wextra -Werror
-RM		=	rm -rf
-SRCS	=	main.cpp \
-			Base.cpp
-OBJS	=	${SRCS:.c=.o}
+NAME		=	typecheck
+CXX			=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+RM			=	rm -rf
+SRCS		=	main.cpp \
+				Base.cpp \
+				A.cpp \
+				B.cpp \
+				C.cpp \
+				function.cpp
+OBJS		=	${SRCS:.cpp=.o}
 
 all	:
-	@$(MAKE) -j6 $(NAME)
+	$(MAKE) -j6 $(NAME)
 
 $(NAME) : $(OBJS)
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
-%.o : %.c
-	@$(CC) $(CFLAGS) -c $< -o $@
+%.o : %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean :
-	@$(RM)
+	$(RM) $(OBJS)
 
 fclean : clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re :
-	@$(MAKE) fclean
-	@$(MAKE) all
+	$(MAKE) fclean
+	$(MAKE) all
 
 .PHONY : all clean fclean re

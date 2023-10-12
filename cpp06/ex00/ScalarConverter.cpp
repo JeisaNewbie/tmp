@@ -6,7 +6,7 @@
 /*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:33:06 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/09/19 17:08:44 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/10/12 15:33:33 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,18 +79,15 @@ void ScalarConverter::convert_to_char( const std::string& copy )
 {
 	char to_char = 0;
 	char *end;
-	errno = 0;
 
 	try
 	{
-		if (!copy.compare ("nan") || !copy.compare("-inf") || !copy.compare("+inf") || !copy.compare("inf"))
-			throw Impossible();
 		if (copy.length() == 1 && !std::isdigit(static_cast<char>(copy[0])))
 			to_char = static_cast<char>(copy[0]);
 		else
 		{
 			long check_char = std::strtol(copy.c_str(), &end, 10);
-			if (check_char < 0 || check_char > 127)
+			if (check_char < -128 || check_char > 127)
 				throw Impossible();
 			to_char = static_cast<char>(check_char);
 			if (strlen(end) != 0)
@@ -112,11 +109,10 @@ void ScalarConverter::convert_to_char( const std::string& copy )
 void ScalarConverter::convert_to_int( const std::string& copy )
 {
 	char *end;
-	int to_int;
+	int to_int = 0;
+
 	try
 	{
-		if (!copy.compare ("nan") || !copy.compare("-inf") || !copy.compare("+inf") || !copy.compare("inf"))
-			throw Impossible();
 		if (copy.length() == 1 && !std::isdigit(static_cast<char>(copy[0])))
 			to_int = static_cast<int>(copy[0]);
 		else
@@ -154,7 +150,7 @@ int ScalarConverter::check_zero( const std::string& copy)
 	else
 	{
 		std::string tmp = copy.substr(n);
-		if ((*(--tmp.end()) == '.'))
+		if (*(--tmp.end()) == '.')
 			return (1);
 		else if (!tmp.compare(".f"))
 			return (1);
@@ -169,18 +165,36 @@ int ScalarConverter::check_zero( const std::string& copy)
 			}
 			return (1);
 		}
-		return (0);
 	}
+}
+
+int ScalarConverter::check_pseudo_literals( const std::string& copy )
+{
+	if (!copy.compare ("nan") || !copy.compare("-inf") || !copy.compare("+inf") || !copy.compare("inf"))
+		return (1);
+	else if (!copy.compare ("nanf") || !copy.compare("-inff") || !copy.compare("+inff") || !copy.compare("inff"))
+		return (2);
+	return (0);
 }
 
 void ScalarConverter::convert_to_float( const std::string& copy )
 {
 	char *end;
-	float to_float;
+	float to_float = 0;
 	int flag = 0;
 
 	try
 	{
+		if (check_pseudo_literals(copy) == 1)
+		{
+			std::cout<<"float: "<<copy<<"f"<<std::endl;
+			return ;
+		}
+		else if (check_pseudo_literals(copy) == 2)
+		{
+			std::cout<<"float: "<<copy<<std::endl;
+			return ;
+		}
 		flag = check_zero (copy);
 		if (copy.length() == 1 && !std::isdigit(static_cast<char>(copy[0])))
 			to_float = static_cast<float>(copy[0]);
@@ -190,17 +204,9 @@ void ScalarConverter::convert_to_float( const std::string& copy )
 			if (check_float(end) == 2 || strlen(end) > 1)
 				throw Impossible();
 		}
-		if ((copy.compare ("nan") && copy.compare("-inf") && copy.compare("+inf") && copy.compare("inf")) && !std::isinf(to_float) && flag == 1)
-			std::cout<<std::setprecision(std::numeric_limits<float>::digits10)<<"float: "<<to_float<<".0";
-		else
-		{
-			if (!copy.compare("+inf"))
-				std::showpos(std::cout);
-			if ((copy.compare ("nan") && copy.compare("-inf") && copy.compare("+inf") && copy.compare("inf")) && !std::isinf(to_float))
-				throw Impossible();
-			else
-				std::cout<<std::setprecision(std::numeric_limits<float>::digits10)<<"float: "<<to_float;
-		}
+		std::cout<<"float: "<<to_float;
+		if (!std::isinf(to_float) && (-1e6f < to_float && to_float < 1e6f) && flag == 1)
+			std::cout<<".0";
 		std::cout<<"f"<<std::endl;
 	}
 	catch(const std::exception& e)
@@ -212,11 +218,21 @@ void ScalarConverter::convert_to_float( const std::string& copy )
 void ScalarConverter::convert_to_double( const std::string& copy )
 {
 	char *end;
-	double to_double;
+	double to_double = 0;
 	int flag = 0;
 
 	try
 	{
+		if (check_pseudo_literals(copy) == 1)
+		{
+			std::cout<<"double: "<<copy<<std::endl;
+			return ;
+		}
+		else if (check_pseudo_literals(copy) == 2)
+		{
+			std::cout<<"double: "<<copy.substr(0, copy.length() - 1)<<std::endl;
+			return ;
+		}
 		flag = check_zero (copy);
 		if (copy.length() == 1 && !std::isdigit(static_cast<char>(copy[0])))
 			to_double = static_cast<double>(copy[0]);
@@ -226,15 +242,9 @@ void ScalarConverter::convert_to_double( const std::string& copy )
 			if (check_float(end) == 2 || strlen(end) > 1)
 				throw Impossible();
 		}
-		std::cout<<std::setprecision(std::numeric_limits<double>::digits10)<<"double: ";
-		if ((copy.compare ("nan") && copy.compare("-inf") && copy.compare("+inf") && copy.compare("inf")) && !std::isinf(to_double) && flag == 1)
-			std::cout<<to_double<<".0";
-		else
-		{
-			if (!copy.compare("+inf"))
-				std::showpos(std::cout);
-			std::cout<<to_double;
-		}
+		std::cout<<"double: "<<to_double;
+		if (!std::isinf(to_double) && flag == 1 && (-1e6f < to_double && to_double < 1e6f))
+			std::cout<<".0";
 		std::cout<<std::endl;
 	}
 	catch(const std::exception& e)

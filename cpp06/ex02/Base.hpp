@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 14:37:25 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/06/02 16:49:27 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/10/12 16:08:39 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,5 @@ class Base
 public:
 	virtual ~Base( void );
 };
-
-class A: public Base {};
-class B: public Base {};
-class C: public Base {};
-
-Base * generate(void);
-void identify(Base* p);
-void identify(Base& p);
 
 #endif
