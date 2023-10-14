@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ahkiler <ahkiler@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 13:54:49 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/06/02 13:58:59 by ahkiler          ###   ########.fr       */
+/*   Updated: 2023/10/12 15:52:27 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ Serializer::Serializer( void )
 Serializer::Serializer( const Serializer& copy )
 {
 	// std::cout<<"Serializer Default Copy Constructor called"<<std::endl;
+	(void)copy;
 }
 
 Serializer& Serializer::operator=( const Serializer& copy )
 {
+	(void)copy;
 	return (*this);
 }
 

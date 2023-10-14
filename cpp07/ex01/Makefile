@@ -6,20 +6,15 @@
 #    By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 13:34:51 by jhwang2           #+#    #+#              #
-#    Updated: 2023/10/12 16:13:58 by jhwang2          ###   ########.fr        #
+#    Updated: 2023/10/14 15:09:32 by jhwang2          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	typecheck
+NAME		=	main
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 RM			=	rm -rf
-SRCS		=	main.cpp \
-				Base.cpp \
-				A.cpp \
-				B.cpp \
-				C.cpp \
-				function.cpp
+SRCS		=	main.cpp
 OBJS		=	${SRCS:.cpp=.o}
 
 all	:

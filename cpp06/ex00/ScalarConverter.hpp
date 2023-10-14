@@ -6,7 +6,7 @@
 /*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 17:20:53 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/09/19 15:55:16 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/10/12 15:00:24 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,10 @@
 class ScalarConverter
 {
 private:
-	static char to_char;
-	static int to_int;
-	static float to_float;
-	static double to_double;
 	ScalarConverter( void );
 	~ScalarConverter( void );
 	ScalarConverter( const ScalarConverter& copy );
 	ScalarConverter& operator=( const ScalarConverter& copy );
-public:
-	static void convert( const char *origin );
 	static void convert_to_char( const std::string& copy );
 	static void convert_to_int( const std::string& copy );
 	static void convert_to_float( const std::string& copy );
@@ -43,6 +37,9 @@ public:
 	static int check_float(char *end);
 	static void check_num(char *end);
 	static int check_zero( const std::string& copy);
+	static int check_pseudo_literals( const std::string& copy );
+public:
+	static void convert( const char *origin );
 	class NonDisplayable: public std::exception
 	{
 		public:
