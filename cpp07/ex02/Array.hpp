@@ -6,7 +6,7 @@
 /*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 13:48:10 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/10/17 13:09:08 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/10/17 14:27:56 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ public:
 		return (*this);
 	}
 
-	T &operator []( size_t n ) //const형 추가
+	T &operator []( size_t n )
 	{
 		if (n >= length)
 			throw Outofbounds();
