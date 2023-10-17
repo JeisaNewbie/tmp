@@ -6,7 +6,7 @@
 /*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 18:13:31 by jhwang2           #+#    #+#             */
-/*   Updated: 2023/10/14 19:53:59 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/10/17 13:08:56 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main()
 	Array<int>	origin(MAX_VAL);
 	int *test = new int [MAX_VAL];
 	int			num = 0;
+	const int const_num = 0;
 
 	for (int i = 0; i < MAX_VAL; i++)
 	{
@@ -43,6 +44,10 @@ int	main()
 
 	Array<int>	test_arr = origin;
 	Array<int>	tmp(origin);
+	const Array<int> tmp_arr = origin;
+
+	std::cout<<test_arr[const_num]<<std::endl;
+	std::cout<<tmp_arr[const_num]<<std::endl;
 
 	try
 	{
