@@ -6,7 +6,7 @@
 /*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 13:48:10 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/10/14 19:42:23 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/10/17 13:09:08 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,15 @@ public:
 	}
 
 	T &operator []( size_t n ) //const형 추가
+	{
+		if (n >= length)
+			throw Outofbounds();
+		if (this->arr == NULL)
+			throw NoArr();
+		return (arr[n]);
+	}
+
+	T &operator []( size_t n ) const
 	{
 		if (n >= length)
 			throw Outofbounds();
