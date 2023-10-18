@@ -6,7 +6,7 @@
 /*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 15:02:41 by ahkiler           #+#    #+#             */
-/*   Updated: 2023/07/25 00:22:02 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/10/17 19:18:22 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 int main()
 {
 	Span	tmp(20);
+
+	try
+	{
+		std::cout<<tmp.longestSpan()<<std::endl;
+		std::cout<<tmp.shortestSpan()<<std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	for (int i = 0; i < 30; i++)
 		tmp.addNumber(i);

@@ -6,7 +6,7 @@
 /*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 00:34:55 by jhwang2           #+#    #+#             */
-/*   Updated: 2023/07/25 16:49:03 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/10/17 20:57:15 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,13 @@ class	MutantStack: public	std::stack<T>
 {
 public:
 	typedef typename std::stack<T>::container_type::iterator	iterator;
-	MutantStack ( void ): std::stack<T>()
-	{
-		std::cout<<"MutantStack Constructor called"<<std::endl;
-	}
-	~ MutantStack ( void )
-	{
-		std::cout<<"MutantStack Destructor called"<<std::endl;
-	}
+	MutantStack ( void ): std::stack<T>() {}
+	~ MutantStack ( void ) {}
+	MutantStack ( const std::stack<T> &copy ): std::stack<T>(copy) {}
 	std::stack<T>	&operator=( const std::stack<T> &copy )
 	{
 		if (*this != copy)
-			*this = copy;
+			return new MutantStack (copy);
 		return (*this);
 	}
 	iterator	begin (void) {return (this->c.begin ());}

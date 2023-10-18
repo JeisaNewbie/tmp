@@ -6,7 +6,7 @@
 /*   By: jhwang2 <jhwang2@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 15:45:49 by jhwang2           #+#    #+#             */
-/*   Updated: 2023/07/25 16:55:43 by jhwang2          ###   ########.fr       */
+/*   Updated: 2023/10/17 19:50:13 by jhwang2          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main()
 	MutantStack<int>::iterator ite = mstack.end();
 	++it;
 	--it;
+	std::cout<<"---------------mstack--------------\n";
 	while (it != ite)
 	{
 	std::cout << *it << std::endl;
@@ -67,6 +68,29 @@ int	main()
 	{
 	std::cout << *it_list << std::endl;
 	++it_list;
+	}
+
+	std::cout<<"-------------------------------------\n";
+	MutantStack<int> tmpstack;
+	MutantStack<int> zerostack;
+	tmpstack = mstack;
+	mstack = zerostack;
+	MutantStack<int>::iterator it_tmp = tmpstack.begin();
+	MutantStack<int>::iterator ite_tmp = tmpstack.end();
+	++it_tmp;
+	--it_tmp;
+	while (it_tmp != ite_tmp)
+	{
+	std::cout << *it_tmp << std::endl;
+	++it_tmp;
+	}
+	std::cout<<"---------------mstack--------------\n";
+	it = mstack.begin();
+	ite = mstack.end();
+	while (it != ite)
+	{
+	std::cout << *it << std::endl;
+	++it;
 	}
 	return 0;
 }
